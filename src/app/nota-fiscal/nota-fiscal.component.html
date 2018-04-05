@@ -1,0 +1,82 @@
+<form #frm="ngForm" (ngSubmit)="incluir(frm)">
+
+<div class="ui-g">
+
+  <div class="ui-g-12 ui-fluid">
+    <h1>Notas Fiscais</h1>
+  </div>
+
+  <div class="ui-g-12 ui-fluid">
+    <label>Contrato</label>
+    <input pInputText name="fkcontrato" [(ngModel)]="itemEditar.fkcontrato" [required]="true">
+  </div>
+
+  <div class="ui-g-4 ui-fluid">
+    <label>Número da Nota</label>
+    <input pInputText type="number" name="numero" [(ngModel)]="itemEditar.numero">
+   </div>
+  
+  <div class="ui-g-4 ui-fluid">
+    <label>Emissão</label>
+    <p-calendar name="dataemissao" [(ngModel)]="itemEditar.dataemissao" 
+        dateFormat="dd/mm/yy" readonlyInput="true" showButtonBar="true"></p-calendar>
+  </div>
+  
+  <div class="ui-g-4 ui-fluid">
+    <label>Comptência</label>
+    <p-calendar name="competencia" [(ngModel)]="itemEditar.competencia" 
+        dateFormat="M/yy" readonlyInput="true" showButtonBar="true"></p-calendar>
+  </div>
+  
+  <div class="ui-g-4 ui-fluid">
+    <label>Valor</label>
+    <input pInputText type="number" name="valor" [(ngModel)]="itemEditar.valor" [required]="true">
+  </div>
+  
+  <div class="ui-g-4 ui-fluid">
+    <label>Data do Pagamento</label>
+    <p-calendar name="datapagamento" [(ngModel)]="itemEditar.datapagamento" 
+        dateFormat="dd/mm/yy" readonlyInput="true" showButtonBar="true"></p-calendar>
+  </div>
+
+  <div class="ui-g-4 ui-fluid">
+    <label>Valor Pago</label>
+    <input pInputText type="number" name="valorpago" [(ngModel)]="itemEditar.valorpago">
+  </div>
+
+  <div class="ui-g-12">
+    <button pButton type="submit" label="Incluir" [disabled]="frm.invalid"></button>
+  </div>
+</div>
+</form>
+
+<div class="ui-g-12">
+  <p-table [value]="itens">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Nota</th>
+            <th>Emissão</th>
+            <th>Competência</th>
+            <th>Contrato</th>
+            <th>Valor Nota</th>
+            <th>Pago em</th>
+            <th>Valor Pago</th>
+            <th>Ações</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-itens>
+        <tr>
+            <td>{{itens.numero}}</td>
+            <td>{{itens.dataemissao | date : 'dd/MM/yyyy'}}</td>
+            <td>{{itens.competencia | date : 'MMM/yyyy'}}</td>
+            <td>{{itens.contrato}}</td>
+            <td>{{itens.valor | currency : 'BRL'}}</td>
+            <td>{{itens.datapagamento | date : 'dd/MM/yyyy'}}</td>
+            <td>{{itens.valorpago | currency : 'BRL':true}}</td>
+            <td><button type="button" pButton (click)="carregaDados(itens)" label="Alterar"></button></td>
+          </tr>
+    </ng-template>
+
+</p-table>  
+</div>
+

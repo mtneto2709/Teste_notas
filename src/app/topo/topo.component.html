@@ -1,0 +1,31 @@
+<nav class="topo">
+  {{ empresa }}
+
+  <div class="navbar navbar-toggleable-md fixed-top navbar-inverse bg-primary">
+<!--
+     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
+      aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+ -->
+    <div class="container-fluid">
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <a routerLink="/" class="navbar-brand"></a>
+        <ul class="navbar-nav">
+          <button class="nav-link" routerLink="/tipocontrato">Tipos de Contratos</button>
+          <button class="nav-link" routerLink="/contrato">Contratos</button>
+          <button class="nav-link" routerLink="/notafiscal">Notas Fiscais</button>
+<!--
+          <li class="nav-item">
+            <button class="nav-link" routerLink="/contrato">Contratos</button>
+          </li>
+          <li class="nav-item">
+            <button class="nav-link" routerLink="/notafiscal">Notas Fiscais</button>
+          </li>
+        -->
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</nav>

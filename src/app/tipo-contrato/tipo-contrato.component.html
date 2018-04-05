@@ -1,0 +1,42 @@
+<form #frm="ngForm" (ngSubmit)="incluir(frm)">
+
+  <div class="ui-g">
+
+    <div class="ui-g-12">
+      <h1>Tipos de Contratos</h1>
+    </div>
+  
+    <div class="ui-g-4 ui-fluid">
+      <label>Sigla</label>
+      <input pInputText name="sigla" [(ngModel)]="itemEditar.sigla" [required]="true">
+    </div>
+  
+    <div class="ui-g-8 ui-fluid">
+      <label>Tipo de Contrato</label>
+      <input pInputText name="tipocontrato" [(ngModel)]="itemEditar.tipocontrato" [required]="true">
+    </div>
+  
+    <div class="ui-g-12">
+      <button pButton type="submit" label="Incluir" [disabled]="frm.invalid"></button>
+    </div>
+  </div>
+</form>
+
+<div class="ui-g-12">
+  <div>
+    <p-dataTable [value]="itens">
+      <p-column field="pktipocontrato" header="Id" ></p-column>
+      <p-column field="sigla" header="Sigla" [editable]="true"></p-column>
+      <p-column field="tipocontrato" header="Tipo Contrato" [editable]="true"></p-column>
+      <p-column>
+        <ng-template let-item="rowData" pTemplate="body">
+            <button type="button" pButton (click)="carregaDados(item)" label="Alterar"></button>
+        </ng-template>
+    </p-column>
+        </p-dataTable>
+  </div>
+</div>
+    
+  
+
+ 
